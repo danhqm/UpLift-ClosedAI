@@ -31,10 +31,17 @@ Sunny is an AI companion that uses student data to give personalized tips, remin
 
 🛠 Tech Stack
 Frontend: Flutter (cross-platform mobile framework)
+
 Backend / Services: Azure PostgreSQL (cloud-hosted), OpenAI API, Google Calendar (TBD)
+
 AI Component (TBD): TensorFlow Lite (lightweight on-device AI model for prediction)
+
 Other Tools: Local notifications, form validation, data storage
+
+
 📱 Target Users
+
+
 The primary users are individuals in Malaysia who are at risk of cardiovascular diseases—particularly:
 
 https://www.figma.com/design/8SDgxBr0uIca5QamaEJt5L/UPLIFTxCODENECTION2025?node-id=0-1&t=cwurr5hAtPmt9ZTn-1
