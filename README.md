@@ -30,6 +30,7 @@ Sunny is an AI companion that uses student data to give personalized tips, remin
 
 
 🛠 Tech Stack
+
 Frontend: Flutter (cross-platform mobile framework)
 
 Backend / Services: Azure PostgreSQL (cloud-hosted), OpenAI API, Google Calendar (TBD)
