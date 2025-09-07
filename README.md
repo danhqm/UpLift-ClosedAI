@@ -11,9 +11,11 @@ UpLift is a mental health app designed to support students and young adults in m
 🧩 Key Features
 
 Mood Tracker
+
 A safe space to record your feelings, write diary entries, and reflect on what’s affecting your mood—while getting helpful tips to support your well-being.
 
 Academic Planning
+
 The Academic Planning feature helps students stay organized and balanced by combining task management with wellness support. With the Deadlines tab, students can track upcoming tasks, add their own deadlines, and set priority levels. The Progress tab provides visual progress bars for active tasks, completed work, and CGPA goals, alongside stress-reducing tips to promote healthier study habits.
 
 Smart Self-Check Module
