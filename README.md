@@ -22,11 +22,17 @@ Smart Self-Check Module
 
 The DASS-21 module helps students quickly assess their depression, anxiety, and stress levels through a validated 21-question check-in. Results generate a clear mental health status that powers personalized guidance and support across the app.
 
+Sunny ai companion
+
+Sunny is an AI companion that uses student data to give personalized tips, reminders, and check-ins, making mental health support feel like a friendly buddy through university life.
+
+
+
 
 🛠 Tech Stack
 Frontend: Flutter (cross-platform mobile framework)
 Backend / Services: Azure PostgreSQL (cloud-hosted), OpenAI API, Google Calendar (TBD)
-AI Component (TBD ): TensorFlow Lite (lightweight on-device AI model for prediction)
+AI Component (TBD): TensorFlow Lite (lightweight on-device AI model for prediction)
 Other Tools: Local notifications, form validation, data storage
 📱 Target Users
 The primary users are individuals in Malaysia who are at risk of cardiovascular diseases—particularly:
