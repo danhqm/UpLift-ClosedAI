@@ -22,7 +22,7 @@ Smart Self-Check Module
 
 The DASS-21 module helps students quickly assess their depression, anxiety, and stress levels through a validated 21-question check-in. Results generate a clear mental health status that powers personalized guidance and support across the app.
 
-Sunny ai companion
+Sunny AI companion
 
 Sunny is an AI companion that uses student data to give personalized tips, reminders, and check-ins, making mental health support feel like a friendly buddy through university life.
 
