@@ -68,6 +68,7 @@ flutter:
     - media/Onboarding1.png
     - media/Onboarding2.png
     - media/Onboarding3.png
+    - media/Passwordrecover.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

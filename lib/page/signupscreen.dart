@@ -143,7 +143,6 @@ class _SignupState extends State<Signup> {
                     ),
                   ),
                 ),
-                // Password field
                 Form(
                   child: Container(
                     margin: const EdgeInsets.only(top: 20),
@@ -208,7 +207,6 @@ class _SignupState extends State<Signup> {
                     ),
                   ),
                 ),
-                // Confirm Password field
                 Form(
                   child: Container(
                     margin: const EdgeInsets.only(top: 20),

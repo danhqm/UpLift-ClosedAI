@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/page/splashscreen.dart';
 import 'package:uplift/page/signinscreen.dart';
+import 'package:uplift/page/passwordrecovery.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

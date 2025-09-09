@@ -176,7 +176,7 @@ class _SigninState extends State<Signin> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Passwordrecovery()),
+                          builder: (context) => const PasswordRecovery()),
                     );
                   },
                   child: const Text(
