@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Mood extends StatelessWidget {
+  const Mood({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("Home")
+            Text("Mood")
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/page/splashscreen.dart';
 import 'package:uplift/page/signinscreen.dart';
-import 'package:uplift/page/passwordrecovery.dart';
+import 'package:uplift/page/bottomnav.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
+      initialRoute: '/bottomnav',
       routes: {
         '/splash': (context) => const Splash(),
         '/signin': (context) => const Signin(),
+        '/bottomnav': (context) => const Bottomnav(),
       },
     );
   }
