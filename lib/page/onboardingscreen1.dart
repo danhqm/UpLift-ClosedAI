@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uplift/page/signinscreen.dart';
 
 class Onboarding1 extends StatefulWidget {
   const Onboarding1({super.key});
@@ -18,6 +19,7 @@ class _OnboardingScreenState extends State<Onboarding1> {
       "image": "media/Onboarding1.png",
       "imageWidth": 300.0,
       "imageHeight": 340.0,
+      "nextRoute": null,
     },
     {
       "title": "Personalize Your Mental Health State With AI",
@@ -25,6 +27,7 @@ class _OnboardingScreenState extends State<Onboarding1> {
       "image": "media/Onboarding2.png",
       "imageWidth": 450.0,
       "imageHeight": 450.0,
+      "nextRoute": null,
     },
     {
       "title": "Personalize Your Mental Health State With AI",
@@ -32,17 +35,20 @@ class _OnboardingScreenState extends State<Onboarding1> {
       "image": "media/Onboarding3.png",
       "imageWidth": 500.0,
       "imageHeight": 500.0,
+      "nextRoute": "/signin",
     },
   ];
 
   void _nextPage() {
+    final nextRoute = onboardingData[_currentPage]['nextRoute'];
+
     if (_currentPage < onboardingData.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
       );
-    } else {
-      Navigator.pushReplacementNamed(context, '/signin');
+    } else if (nextRoute != null){
+      Navigator.pushReplacementNamed(context, nextRoute);
     }
   }
 

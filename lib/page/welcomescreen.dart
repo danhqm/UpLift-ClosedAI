@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/page/onboardingscreen1.dart';
+import 'package:uplift/page/signinscreen.dart';
 
 
 class Welcome extends StatelessWidget {
@@ -86,7 +87,7 @@ class Welcome extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Onboarding1()),
+                            MaterialPageRoute(builder: (context) => const Signin()),
                           );
                         },
                         child: Container(
