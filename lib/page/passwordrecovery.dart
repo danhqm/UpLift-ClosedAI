@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uplift/page/digitcode.dart';
 
 class PasswordRecovery extends StatelessWidget {
   const PasswordRecovery({super.key});
@@ -148,7 +149,13 @@ class PasswordRecovery extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              // Handle button press
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Digit()),
+                              );
+                            },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
