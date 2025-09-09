@@ -31,15 +31,14 @@ class _SplashState extends State<Splash> {
       backgroundColor: Color(0xFFF7F4F2),
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min, // keeps content centered
+          mainAxisSize: MainAxisSize.min,
           children: [
             Image(
               image: AssetImage('media/Logo.png'),
               width: 350,
-              height: 100,
               fit: BoxFit.contain,
             ),
-            SizedBox(height: 10), // space between logo and text
+            SizedBox(height: 10),
             Text(
               "Rise above, stay balanced",
               style: TextStyle(
