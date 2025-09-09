@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:uplift/page/passwordsuccessfull.dart';
 
 class Digit extends StatefulWidget {
   const Digit({super.key});
@@ -21,8 +22,9 @@ class _DigitState extends State<Digit> {
       setState(() {
         _errorMessage = "";
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Code verified! ✅")),
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Passwordsuccessfull()),
       );
     }
   }
@@ -30,10 +32,10 @@ class _DigitState extends State<Digit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true, // 👈 allows screen to adjust for keyboard
+      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xFFF7F4F2),
       body: SafeArea(
-        child: SingleChildScrollView( // 👈 makes the screen scrollable
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
