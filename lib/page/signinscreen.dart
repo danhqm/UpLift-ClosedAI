@@ -3,7 +3,6 @@ import 'package:uplift/page/passwordrecovery.dart';
 import 'package:uplift/page/signupscreen.dart';
 import 'package:uplift/page/welcomescreen.dart';
 
-
 class Signin extends StatefulWidget {
   const Signin({super.key});
 
@@ -12,22 +11,29 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
-  bool _obscureText = true; //
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF7F4F2),
-      body: Center(
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 40),
+
+              // Logo
               const Image(
                 image: AssetImage('media/Logo.png'),
                 width: 350,
                 fit: BoxFit.contain,
               ),
               const SizedBox(height: 34),
+
+              // Title
               const Text(
                 'Sign In',
                 style: TextStyle(
@@ -37,6 +43,8 @@ class _SigninState extends State<Signin> {
                   color: Color(0xFF4F3422),
                 ),
               ),
+
+              // Username field
               Form(
                 child: Container(
                   margin: const EdgeInsets.only(top: 20),
@@ -89,6 +97,8 @@ class _SigninState extends State<Signin> {
                   ),
                 ),
               ),
+
+              // Password field
               Form(
                 child: Container(
                   margin: const EdgeInsets.only(top: 20),
@@ -120,14 +130,16 @@ class _SigninState extends State<Signin> {
                             Icons.lock_outline_rounded,
                             color: Color(0xFF4F3422),
                           ),
-                          suffixIcon: IconButton( // 👈 eye button
+                          suffixIcon: IconButton(
                             icon: Icon(
-                              _obscureText ? Icons.visibility_off : Icons.visibility,
+                              _obscureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: const Color(0xFFC9C7C5),
                             ),
                             onPressed: () {
                               setState(() {
-                                _obscureText = !_obscureText; // 👈 toggle state
+                                _obscureText = !_obscureText;
                               });
                             },
                           ),
@@ -153,14 +165,18 @@ class _SigninState extends State<Signin> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+
+              const SizedBox(height: 10),
+
+              // Forgot password
               Align(
                 alignment: Alignment.center,
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Passwordrecovery()),
+                      MaterialPageRoute(
+                          builder: (context) => const Passwordrecovery()),
                     );
                   },
                   child: const Text(
@@ -177,7 +193,10 @@ class _SigninState extends State<Signin> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 10),
+
+              // Sign in button
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -202,7 +221,10 @@ class _SigninState extends State<Signin> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+
+              const SizedBox(height: 30),
+
+              // Sign up link
               Text.rich(
                 TextSpan(
                   text: 'Don\'t have an account? ',
@@ -220,7 +242,8 @@ class _SigninState extends State<Signin> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Signup()),
+                            MaterialPageRoute(
+                                builder: (context) => const Signup()),
                           );
                         },
                         child: Container(
@@ -248,8 +271,11 @@ class _SigninState extends State<Signin> {
                   ],
                 ),
                 textAlign: TextAlign.center,
-              )
-            ]
+              ),
+
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );
