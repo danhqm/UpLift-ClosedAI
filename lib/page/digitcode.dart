@@ -1,24 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:uplift/controller/usercontroller.dart';
 import 'package:uplift/page/passwordsuccessfull.dart';
 
 class Digit extends StatefulWidget {
-  const Digit({super.key});
+  final String email;
+  final int code;
+  final String password;
+
+  const Digit({super.key, required this.code, required this.password, required this.email});
 
   @override
   State<Digit> createState() => _DigitState();
 }
 
 class _DigitState extends State<Digit> {
+  final UserController userController = UserController();
   String _enteredCode = "";
   String _errorMessage = "";
 
-  void _verifyCode() {
-    if (_enteredCode != "12345") { // Sini tukar logic sendiri
+  Future<void> _verifyCode() async {
+    if (_enteredCode != widget.code.toString()) {
       setState(() {
         _errorMessage = "Invalid code. Please try again.";
       });
     } else {
+      bool result = await userController.resetPassword(widget.email, widget.password);
+      if (!result) {
+        setState(() {
+          _errorMessage = "Error resetting password. Please try again.";
+        });
+        return;
+      }
       setState(() {
         _errorMessage = "";
       });
@@ -141,7 +154,7 @@ class _DigitState extends State<Digit> {
                 height: 56,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFDF6D14),
+                    backgroundColor: const Color(0xFF4B3425),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
