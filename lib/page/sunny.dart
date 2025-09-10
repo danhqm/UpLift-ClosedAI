@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/page/sunnychatbot.dart';
+import 'package:uplift/page/sunnyconverse.dart';
 
 class Sunny extends StatelessWidget {
   const Sunny({super.key});
@@ -93,7 +94,11 @@ class Sunny extends StatelessWidget {
                       child: _buildOptionCard(
                         title: 'Conversational\nAI',
                         onTap: () {
-                          // Handle tap
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SunnyConverseStart()),
+                          );
                         },
                       ),
                     ),

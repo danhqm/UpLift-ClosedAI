@@ -24,46 +24,58 @@ class _SunnyChatbotState extends State<SunnyChatbot> {
   }
 
   void _addInitialGreeting() async {
+    if (!mounted) return; // extra safety
     setState(() {
       isLoading = true;
     });
 
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
+
+    if (!mounted) return; // check before updating UI
     setState(() {
       _messages.add({'role': 'system', 'content': 'Hello! How can I assist you today?'});
       isLoading = false;
     });
 
-    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    if (mounted && _scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    }
   }
 
   void _sendMessage() async {
     final message = _controller.text.trim();
-    if (message.isNotEmpty) {
+    if (message.isEmpty) return;
+
+    if (!mounted) return;
+    setState(() {
+      _messages.add({'role': 'user', 'content': message});
+      isLoading = true;
+    });
+
+    _controller.clear();
+
+    try {
+      String response = await openAIService.runConversation(message);
+
+      if (!mounted) return;
       setState(() {
-        _messages.add({'role': 'user', 'content': message});
-        isLoading = true;
+        _messages.add({'role': 'system', 'content': response});
+        isLoading = false;
       });
 
-      _controller.clear();
-
-      try {
-        String response = await openAIService.runConversation(message);
-        setState(() {
-          _messages.add({'role': 'system', 'content': response});
-          isLoading = false;
-        });
-
+      if (_scrollController.hasClients) {
         _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-      } catch (e) {
-        setState(() {
-          _messages.add({'role': 'system', 'content': 'Error: Unable to get response from the AI.'});
-          isLoading = false;
-        });
-        print("Error: $e");
       }
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _messages.add({'role': 'system', 'content': 'Error: Unable to get response from the AI.'});
+        isLoading = false;
+      });
+      print("Error: $e");
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
