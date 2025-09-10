@@ -76,6 +76,11 @@ flutter:
     - media/Checkround.png
     - media/sunny.png
     - media/sunny.gif
+    - media/Neutral.png
+    - media/Sad.png
+    - media/Happy.png
+    - media/Excited.png
+    - media/Upset.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
