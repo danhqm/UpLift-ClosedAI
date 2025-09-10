@@ -36,8 +36,8 @@ The app combines science-backed tools with an intuitive design to make self-care
 
 ## 🛠 Tech Stack  
 
-- **Frontend:** Flutter (cross-platform)  
-- **Backend / Services:** Azure PostgreSQL, OpenAI API, Google Calendar (TBD)  
+- **Framework:** Flutter (cross-platform SDK for frontend UI and backend integration)  
+- **Database / Services:** Azure PostgreSQL, OpenAI API, Google Calendar (TBD)  
 - **AI Component (TBD):** TensorFlow Lite (on-device prediction)  
 
 ---
