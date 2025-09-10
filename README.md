@@ -1,48 +1,53 @@
 # UpLift-ClosedAI
 
+## 🌟 Project Overview  
+**UpLift** is a mental health app designed for university students to:  
+- Manage stress and anxiety  
+- Build resilience  
+- Improve academic performance through better well-being  
 
+The app combines science-backed tools with an intuitive design to make self-care accessible anytime, anywhere.  
 
-UpLift
+---
 
-🌟 Project Overview
+## 🧩 Key Features  
 
-UpLift is a mental health app designed to support students and young adults in managing stress, building resilience, and improving overall well-being. The app combines science-backed tools with a friendly and intuitive design to make self-care accessible anytime, anywhere. Users can track their mood, set personal goals, manage academic and personal deadlines, and access guided coping strategies tailored to their needs.
+- **Mood Tracker**  
+  - Log daily moods, categorize by event (school, work, personal)  
+  - Write diary entries and reflect on triggers  
+  - Receive helpful tips for emotional support  
 
-🧩 Key Features
+- **Academic Planning**  
+  - Track tasks and deadlines with priority levels  
+  - Visual progress bars for tasks, completed work, and CGPA goals  
+  - Stress-reducing tips and push notifications for schedules  
 
-Mood Tracker
+- **Smart Self-Check (DASS-21)**  
+  - 21-question validated assessment for depression, anxiety, and stress  
+  - Generates a clear mental health status  
+  - Provides personalized guidance and recommendations  
 
-A safe space to record your feelings, write diary entries, and reflect on what’s affecting your mood—while getting helpful tips to support your well-being.
+- **Sunny – AI Companion**  
+  - Real-time voice or chatbot interaction  
+  - Personalized check-ins and coping strategies  
+  - Friendly, stigma-free support throughout student life  
 
-Academic Planning
+---
 
-The Academic Planning feature helps students stay organized and balanced by combining task management with wellness support. With the Deadlines tab, students can track upcoming tasks, add their own deadlines, and set priority levels. The Progress tab provides visual progress bars for active tasks, completed work, and CGPA goals, alongside stress-reducing tips to promote healthier study habits.
+## 🛠 Tech Stack  
 
-Smart Self-Check Module
+- **Frontend:** Flutter (cross-platform)  
+- **Backend / Services:** Azure PostgreSQL, OpenAI API, Google Calendar (TBD)  
+- **AI Component (TBD):** TensorFlow Lite (on-device prediction)  
 
-The DASS-21 module helps students quickly assess their depression, anxiety, and stress levels through a validated 21-question check-in. Results generate a clear mental health status that powers personalized guidance and support across the app.
+---
 
-Sunny AI companion
+## 📱 Target Users  
 
-Sunny is an AI companion that uses student data to give personalized tips, reminders, and check-ins, making mental health support feel like a friendly buddy through university life.
+- University students experiencing mental health challenges while pursuing their studies  
 
+---
 
+## 🎨 Design Prototype  
 
-
-🛠 Tech Stack
-
-Frontend: Flutter (cross-platform mobile framework)
-
-Backend / Services: Azure PostgreSQL (cloud-hosted), OpenAI API, Google Calendar (TBD)
-
-AI Component (TBD): TensorFlow Lite (lightweight on-device AI model for prediction)
-
-Other Tools: Local notifications, form validation, data storage
-
-
-📱 Target Users
-
-
-The primary users are individuals in Malaysia who are at risk of cardiovascular diseases—particularly:
-
-https://www.figma.com/design/8SDgxBr0uIca5QamaEJt5L/UPLIFTxCODENECTION2025?node-id=0-1&t=cwurr5hAtPmt9ZTn-1
+Figma: [View Design](https://www.figma.com/design/8SDgxBr0uIca5QamaEJt5L/UPLIFTxCODENECTION2025?node-id=0-1&t=cwurr5hAtPmt9ZTn-1)  
