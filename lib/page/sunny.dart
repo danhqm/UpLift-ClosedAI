@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uplift/page/sunnychatbot.dart';
 
 class Sunny extends StatelessWidget {
   const Sunny({super.key});
@@ -47,7 +48,7 @@ class Sunny extends StatelessWidget {
                       width: 500,
                       height: 300,
                       child: Image.asset(
-                        'assets/gif/sunny.gif',
+                        'media/sunny.gif',
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
@@ -81,9 +82,7 @@ class Sunny extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 32),
-              const Divider(color: Color(0xFFC9C7C5), thickness: 1),
-              const SizedBox(height: 32),
+              const SizedBox(height: 40),
               // Option cards
               Row(
                 children: [
@@ -104,10 +103,14 @@ class Sunny extends StatelessWidget {
                   Expanded(
                     child: SizedBox(
                       height: 140, // fixed uniform height
-                      child: _buildOptionCardWithArrow(
+                      child: _buildOptionCard(
                         title: 'Chatbot\nAI',
                         onTap: () {
-                          // Handle tap
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SunnyChatbot()),
+                          );
                         },
                       ),
                     ),
@@ -126,36 +129,43 @@ class Sunny extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: const Color(0xFFDF6D14),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
+              color: Colors.black.withOpacity(0.4),
+              blurRadius: 6,
               offset: const Offset(0, 2),
             ),
           ],
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
           children: [
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
+            // Title near top-center
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                title,
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
               ),
             ),
-            const SizedBox(height: 8),
-            const Icon(
-              Icons.mic_none_outlined,
-              color: Colors.white,
-              size: 24,
+
+            // Arrow at bottom-right
+            const Align(
+              alignment: Alignment.bottomRight,
+              child: Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                size: 24,
+              ),
             ),
           ],
         ),
@@ -163,49 +173,5 @@ class Sunny extends StatelessWidget {
     );
   }
 
-  Widget _buildOptionCardWithArrow({required String title, required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: const Color(0xFFDF6D14),
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.chat_bubble_outline,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+
 }

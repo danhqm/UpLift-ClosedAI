@@ -29,13 +29,21 @@ class _BottomnavState extends State<Bottomnav> {
       body: pages[currentPage],
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF9BB068),
-        child: const Icon(Icons.android_outlined, color: Color(0xFF736B66)),
+        backgroundColor: const Color(0xFF9BB068), // new button color
         onPressed: () {
           setState(() {
             currentPage = 2; // middle page (Sunny)
           });
         },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50), // make it circular
+          child: Image.asset(
+            'media/sunny.png',
+            width: 50,
+            height: 50,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
