@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uplift/page/diarydetails.dart';
 
 class Mood extends StatelessWidget {
   const Mood({super.key});
@@ -103,7 +104,17 @@ class Mood extends StatelessWidget {
                     date: "29/06/2025",
                     description:
                     "Today felt a little bit challenging. I have my midterms next week and I feel the pressure building up...",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Diarydetails(
+                              title: "Midterm Pressure",
+                              date: "29/06/2025",
+                              description: "Today felt a little bit challenging. I have my midterms next week and I feel the pressure building up...")
+                        ),
+                      );
+                    },
                   ),
                   DiaryEntryCard(
                     title: "Grateful Day",
