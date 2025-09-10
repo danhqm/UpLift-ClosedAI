@@ -2,7 +2,7 @@
 
 ## 🌟 Project Overview  
 **UpLift** is a mental health app designed for university students to:  
-- Manage stress and anxiety  
+- Manage most common mental health which are depression, stress and anxiety  
 - Build resilience  
 - Improve academic performance through better well-being  
 
@@ -25,7 +25,7 @@ The app combines science-backed tools with an intuitive design to make self-care
 - **Smart Self-Check (DASS-21)**  
   - 21-question validated assessment for depression, anxiety, and stress  
   - Generates a clear mental health status  
-  - Provides personalized guidance and recommendations  
+  - Powers personalized guidance and recommendations across the app  
 
 - **Sunny – AI Companion**  
   - Real-time voice or chatbot interaction  
