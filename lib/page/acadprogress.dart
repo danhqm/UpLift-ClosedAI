@@ -136,6 +136,8 @@ class _AcadprogressState extends State<Acadprogress> {
                 child: _buildCgpaCard(
                   imagePath: 'media/ProgressCGPA.png',
                   title: 'CGPA Goal',
+                  progress: completedProgress,
+                  progressColor: const Color(0xFFDF6D14),
                   cgpaGoal: cgpaGoal,
                 ),
               ),
@@ -306,6 +308,8 @@ class _AcadprogressState extends State<Acadprogress> {
     required String imagePath,
     required String title,
     required String cgpaGoal,
+    required double progress,
+    required Color progressColor,
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -343,6 +347,15 @@ class _AcadprogressState extends State<Acadprogress> {
                     color: Color(0xFF4F3422),
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: LinearProgressIndicator(
+                    value: progress,
+                    minHeight: 8,
+                    backgroundColor: const Color(0xFFFFCDA2),
+                    color: progressColor,
                   ),
                 ),
                 const SizedBox(height: 2),
