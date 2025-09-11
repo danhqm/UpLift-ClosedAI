@@ -8,7 +8,8 @@ class Digit extends StatefulWidget {
   final int code;
   final String password;
 
-  const Digit({super.key, required this.code, required this.password, required this.email});
+
+  const Digit({super.key, required this.code, required this.password, required this.email,});
 
   @override
   State<Digit> createState() => _DigitState();

@@ -4,6 +4,7 @@ import 'package:uplift/page/homescreen.dart';
 import 'package:uplift/page/mood.dart';
 import 'package:uplift/page/profile.dart';
 import 'package:uplift/page/sunny.dart';
+import 'package:uplift/page/acadprogress.dart';
 
 class Bottomnav extends StatefulWidget {
   const Bottomnav({super.key});
@@ -15,13 +16,28 @@ class Bottomnav extends StatefulWidget {
 class _BottomnavState extends State<Bottomnav> {
   int currentPage = 0;
 
-  final List<Widget> pages = const [
-    Home(),
-    Acadplan(),
-    Sunny(),
-    Mood(),
-    Profile(),
-  ];
+  late final List<Widget> pages;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Initialize pages and pass a callback to switch tabs
+    pages = [
+      Home(onTabChange: _changePage),
+      Acadplan(onTabChange: _changePage),
+      Sunny(onTabChange: _changePage),
+      Mood(onTabChange: _changePage),
+      Profile(onTabChange: _changePage),
+      Acadprogress(onTabChange: _changePage),
+    ];
+  }
+
+  void _changePage(int index) {
+    setState(() {
+      currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +45,10 @@ class _BottomnavState extends State<Bottomnav> {
       body: pages[currentPage],
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF9BB068), // new button color
-        onPressed: () {
-          setState(() {
-            currentPage = 2; // middle page (Sunny)
-          });
-        },
+        backgroundColor: const Color(0xFF9BB068),
+        onPressed: () => _changePage(2), // Sunny page
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(50), // make it circular
+          borderRadius: BorderRadius.circular(50),
           child: Image.asset(
             'media/sunny.png',
             width: 50,
@@ -59,29 +71,29 @@ class _BottomnavState extends State<Bottomnav> {
                   color: currentPage == 0
                       ? const Color(0xFFDF6D14)
                       : const Color(0xFF736B66)),
-              onPressed: () => setState(() => currentPage = 0),
+              onPressed: () => _changePage(0),
             ),
             IconButton(
               icon: Icon(Icons.article_outlined,
                   color: currentPage == 1
                       ? const Color(0xFFDF6D14)
                       : const Color(0xFF736B66)),
-              onPressed: () => setState(() => currentPage = 1),
+              onPressed: () => _changePage(1),
             ),
-            const SizedBox(width: 48), // space for floating button
+            const SizedBox(width: 48), // space for FAB
             IconButton(
               icon: Icon(Icons.mood_outlined,
                   color: currentPage == 3
                       ? const Color(0xFFDF6D14)
                       : const Color(0xFF736B66)),
-              onPressed: () => setState(() => currentPage = 3),
+              onPressed: () => _changePage(3),
             ),
             IconButton(
               icon: Icon(Icons.person_outline,
                   color: currentPage == 4
                       ? const Color(0xFFDF6D14)
                       : const Color(0xFF736B66)),
-              onPressed: () => setState(() => currentPage = 4),
+              onPressed: () => _changePage(4),
             ),
           ],
         ),

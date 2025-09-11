@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({super.key, required void Function(int index) onTabChange});
 
   @override
   Widget build(BuildContext context) {

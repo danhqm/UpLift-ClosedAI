@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/page/homescreen.dart';
+import 'package:uplift/page/signinscreen.dart';
 
 
 class Passwordsuccessfull extends StatelessWidget {
-  const Passwordsuccessfull({super.key});
+
+  const Passwordsuccessfull({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class Passwordsuccessfull extends StatelessWidget {
                   color: Color(0xFF4F3422),
                 ),
                 textAlign: TextAlign.center,
-                softWrap: true, // ensures wrapping
+                softWrap: true,
               ),
             ),
             SizedBox(height: 50),
@@ -48,7 +50,7 @@ class Passwordsuccessfull extends StatelessWidget {
                   // Handle button press
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) => const Signin()),
                   );
                 },
                 child: const Row(

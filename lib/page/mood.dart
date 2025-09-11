@@ -3,7 +3,7 @@ import 'package:uplift/page/bottomnav.dart';
 import 'package:uplift/page/diarydetails.dart';
 
 class Mood extends StatefulWidget {
-  const Mood({super.key});
+  const Mood({super.key, required void Function(int index) onTabChange});
 
   @override
   State<Mood> createState() => _MoodState();

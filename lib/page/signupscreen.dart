@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uplift/controller/usercontroller.dart';
 import 'package:uplift/model/usermodel.dart';
-import 'package:uplift/page/homescreen.dart';
+import 'package:uplift/page/bottomnav.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -94,7 +94,7 @@ class _SignupState extends State<Signup> {
         // Navigate to home screen after successful signup
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const Home()),
+          MaterialPageRoute(builder: (context) => const Bottomnav()),
         );
       } else {
         // Show error message if signup failed

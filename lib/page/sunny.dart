@@ -3,7 +3,7 @@ import 'package:uplift/page/sunnychatbot.dart';
 import 'package:uplift/page/sunnyconverse.dart';
 
 class Sunny extends StatelessWidget {
-  const Sunny({super.key});
+  const Sunny({super.key, required void Function(int index) onTabChange});
 
   @override
   Widget build(BuildContext context) {
