@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uplift/page/bottomnav.dart';
 import 'package:uplift/page/diarydetails.dart';
-import 'package:uplift/page/mood.dart';
 
 class Diarysave extends StatelessWidget {
   final String title;

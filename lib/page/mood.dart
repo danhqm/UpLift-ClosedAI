@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uplift/page/bottomnav.dart';
 import 'package:uplift/page/diarydetails.dart';
 
 class Mood extends StatefulWidget {
@@ -118,7 +119,7 @@ class _MoodState extends State<Mood> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center, // center content
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("You’re feeling..", style: _titleStyle),
                   const SizedBox(height: 45),
@@ -192,17 +193,7 @@ class _MoodState extends State<Mood> {
                     style: TextStyle(color: Color(0xFF736B66)),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    "What's making you feel that way?",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w800,
-                      color: Color(0xFF4F3422),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
 
-                  // Category options as Grid
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 3, // 3 per row
@@ -234,16 +225,7 @@ class _MoodState extends State<Mood> {
                         ),
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Diarydetails(
-                                title: "My Diary Entry",
-                                date: "11/09/2025",
-                                description: "Started from overlay...",
-                              ),
-                            ),
-                          );
+                          _showSubmitOverlay(context);
                         },
                         child: const Text(
                           "Continue",
@@ -260,6 +242,107 @@ class _MoodState extends State<Mood> {
       },
     );
   }
+
+  void _showSubmitOverlay(BuildContext context) {
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: const Color(0xFFF7F4F2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: SizedBox(
+            width: 338,
+            height: 600,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Text("Write a Diary", style: _titleStyle),
+                  const SizedBox(height: 3),
+                  const Text(
+                    "Pour out your heart. There are no judgements here.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'Inter',
+                      color: Color(0xFF4B3425),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+
+
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        expands: true,
+                        maxLines: null,
+                        minLines: null,
+                        keyboardType: TextInputType.multiline,
+                        decoration: const InputDecoration(
+                          hintText: "Start writing your diary here...",
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.all(12),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  SizedBox(
+                    width: double.infinity,
+                    height: 45,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4F3422),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Bottomnav(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Submit",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 
 
 
@@ -472,7 +555,7 @@ class _MoodState extends State<Mood> {
 }
 
 
-// ------------------ Diary Card Widget ------------------
+
 
 class DiaryEntryCard extends StatelessWidget {
   final String title;
