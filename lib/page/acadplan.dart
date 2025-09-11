@@ -1,28 +1,59 @@
 import 'package:flutter/material.dart';
 import 'addplan.dart';
 
-
-class Acadplan extends StatelessWidget {
+class Acadplan extends StatefulWidget {
   final Function(int) onTabChange;
 
   const Acadplan({super.key, required this.onTabChange});
 
   @override
+  State<Acadplan> createState() => _AcadplanState();
+}
+
+class _AcadplanState extends State<Acadplan> {
+  // Modify sini gak
+  final List<Map<String, String>> tasks = [
+    {
+      "title": "Assignment BITM",
+      "description": "Description",
+      "priority": "High",
+      "deadline": "15 Sep 2025",
+    },
+    {
+      "title": "Assignment BITM",
+      "description": "Description",
+      "priority": "Medium",
+      "deadline": "20 Sep 2025",
+    },
+  ];
+
+  void removeTask(int index) {
+    setState(() {
+      tasks.removeAt(index);
+    });
+  }
+
+  void completeTask(int index) {
+    setState(() {
+      tasks.removeAt(index);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF7F4F2),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFFDF6D14),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) => const AddPlan(),
-            );
-          },
-          child: const Icon(Icons.add, color: Colors.white),
-        ),
-
-        body: SafeArea(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xFFDF6D14),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => const AddPlan(),
+          );
+        },
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
+      body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 100),
           child: Column(
@@ -53,7 +84,7 @@ class Acadplan extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 25, right: 25, bottom: 20),
+                padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
                 child: Row(
                   children: [
                     ElevatedButton(
@@ -76,10 +107,10 @@ class Acadplan extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 6),
+                    const SizedBox(width: 6),
                     ElevatedButton(
                       onPressed: () {
-                        onTabChange(5);
+                        widget.onTabChange(5);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF9BB068),
@@ -98,7 +129,7 @@ class Acadplan extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ]
+                  ],
                 ),
               ),
               const Padding(
@@ -115,44 +146,26 @@ class Acadplan extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
-                  children: [
-                    academicPlanCard(
-                      title: "Assignment BITM",
-                      description:
-                      "Description",
-                      priority: "High",
-                      deadline: "15 Sep 2025",
-                      onRemove: () {
-                        print("Removed Assignment");
-                      },
-                      onComplete: () {
-                        print("Completed Assignment");
-                      },
-                    ),
-                    academicPlanCard(
-                      title: "Assignment BITM",
-                      description:
-                      "Description",
-                      priority: "Medium",
-                      deadline: "20 Sep 2025",
-                      onRemove: () {
-                        print("Removed Study Plan");
-                      },
-                      onComplete: () {
-                        print("Completed Study Plan");
-                      },
-                    ),
-                  ],
+                  children: List.generate(tasks.length, (index) {
+                    final task = tasks[index];
+                    return academicPlanCard(
+                      title: task["title"]!,
+                      description: task["description"]!,
+                      priority: task["priority"]!,
+                      deadline: task["deadline"]!,
+                      onRemove: () => removeTask(index),
+                      onComplete: () => completeTask(index),
+                    );
+                  }),
                 ),
               ),
-            ]
-          )
+            ],
+          ),
         ),
-      )
+      ),
     );
   }
 }
-
 
 Widget academicPlanCard({
   required String title,
@@ -162,20 +175,19 @@ Widget academicPlanCard({
   required VoidCallback onRemove,
   required VoidCallback onComplete,
 }) {
-  // Decide card background color based on priority
   Color cardColor;
   switch (priority.toLowerCase()) {
     case "high":
-      cardColor = Color(0xFFBA2424); // light red
+      cardColor = const Color(0xFFBA2424);
       break;
     case "medium":
-      cardColor = Color(0xFFFFBD1A); // light yellow
+      cardColor = const Color(0xFFFFBD1A);
       break;
     case "low":
-      cardColor = Colors.green.shade100; // light green
+      cardColor = Colors.green.shade100;
       break;
     default:
-      cardColor = Colors.white; // fallback
+      cardColor = Colors.white;
   }
 
   return Container(
@@ -195,7 +207,6 @@ Widget academicPlanCard({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Title
         Text(
           title,
           style: const TextStyle(
@@ -205,8 +216,6 @@ Widget academicPlanCard({
           ),
         ),
         const SizedBox(height: 6),
-
-        // Description
         Text(
           description,
           style: const TextStyle(
@@ -215,12 +224,9 @@ Widget academicPlanCard({
           ),
         ),
         const SizedBox(height: 16),
-
-        // Bottom row with priority, deadline, and buttons
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Left side: Priority + Deadline
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -232,7 +238,7 @@ Widget academicPlanCard({
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white, // "Priority:" always white
+                          color: Colors.white,
                         ),
                       ),
                       TextSpan(
@@ -241,9 +247,9 @@ Widget academicPlanCard({
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: priority.toLowerCase() == "high"
-                              ? Color(0xFFFFCE5C)
+                              ? const Color(0xFFFFCE5C)
                               : priority.toLowerCase() == "medium"
-                              ? Color(0xFF4F3422)
+                              ? const Color(0xFF4F3422)
                               : Colors.green,
                         ),
                       ),
@@ -260,14 +266,12 @@ Widget academicPlanCard({
                 ),
               ],
             ),
-
-            // Right side: Buttons
             Row(
               children: [
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Color(0xFFDADADA)),
-                    backgroundColor: Color(0xFFFFFFFF),
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -289,7 +293,7 @@ Widget academicPlanCard({
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     side: const BorderSide(color: Color(0xFFDADADA)),
-                    backgroundColor: const Color(0xFF3A7D44),
+                    backgroundColor: Color(0xFF3A7D44),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -303,7 +307,7 @@ Widget academicPlanCard({
                       fontFamily: 'Inter',
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFFFFFFFF),
+                      color: Colors.white,
                     ),
                   ),
                 ),

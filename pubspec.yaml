@@ -87,6 +87,9 @@ flutter:
     - media/Happy.png
     - media/Excited.png
     - media/Upset.png
+    - media/ProgressCard.png
+    - media/ProgressCheck.png
+    - media/ProgressCGPA.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
